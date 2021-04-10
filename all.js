@@ -34,7 +34,6 @@ function init() {
     })
         .catch(function (error) {
         console.log(error);
-
     })
 }
 
@@ -112,7 +111,7 @@ function render(location) {
     console.log(newData);
     
 
-    let searchResultNum = `本次搜尋共有${newData.length}次`;
+    let searchResultNum = `本次搜尋共有${newData.length}筆資料`;
     console.log(newData.length);
 
 
@@ -154,3 +153,6 @@ function render(location) {
 
 //初始化
 init();
+
+
+
