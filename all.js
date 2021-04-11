@@ -30,7 +30,7 @@ function init() {
         console.log(response);
         data = response.data;
         addStr();
-        // console.log(data);
+        console.log(data);
     })
         .catch(function (error) {
         console.log(error);
@@ -155,4 +155,12 @@ function render(location) {
 init();
 
 
+// c3.js start
+function renderList() {
+    let str = "";
+    data.forEach(function(item){
+        console.log(item)
+    })
+}
 
+renderList();
