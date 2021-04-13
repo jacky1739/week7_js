@@ -31,6 +31,9 @@ function init() {
         data = response.data;
         addStr();
         console.log(data);
+        filterData();
+        translate();
+        renderC3();
     })
         .catch(function (error) {
         console.log(error);
@@ -156,11 +159,42 @@ init();
 
 
 // c3.js start
-function renderList() {
-    let str = "";
-    data.forEach(function(item){
-        console.log(item)
+let totalObj = {};
+
+function filterData(){
+// let totalObj = {};
+    data.forEach(function(item, index){
+        if(totalObj[item.area] == undefined){
+            totalObj[item.area] = 1
+        }else{
+            totalObj[item.area] += 1
+        }
     })
 }
 
-renderList();
+// newData = [["高雄", 2], ["台北",1], ["台中", 1]]
+let newData = [];
+function translate(){
+    let area = Object.keys(totalObj);
+  // area output ["高雄","台北","台中"]
+    area.forEach(function(item,index){
+        let ary = [];
+        ary.push(item);
+        ary.push(totalObj[item]);
+        newData.push(ary);
+    })
+}
+
+// 將 newData 丟入 c3 產生器
+function renderC3(){
+    const chart = c3.generate({
+        bindto: "#chart",
+        data: {
+            columns: newData,
+            type : 'donut',
+        },
+        donut: {
+            title: "地區"
+        }
+    });
+}
