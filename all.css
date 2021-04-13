@@ -492,3 +492,8 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+.chart {
+  width: 200px;
+  margin-left: 300px;
+}

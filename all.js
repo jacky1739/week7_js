@@ -188,7 +188,7 @@ function translate(){
 // 將 newData 丟入 c3 產生器
 function renderC3(){
     const chart = c3.generate({
-        bindto: "#chart",
+        bindto: ".chart",
         data: {
             columns: newData,
             type : 'donut',
